@@ -11,4 +11,4 @@ The vbs script is used to attack a computrt whicj is not connected to the Intern
 
 Technology is both Jesus and Satan ,don't use the technolog to hurt people!Forever!
 
-More detail can you see in my blog http://104.128.94.53/wordpress.
+More detail can you see in my blog http://huasir.pro
